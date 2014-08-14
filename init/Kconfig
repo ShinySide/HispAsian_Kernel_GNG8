@@ -475,7 +475,7 @@ config RCU_FANOUT_EXACT
 config RCU_FAST_NO_HZ
 	bool "Accelerate last non-dyntick-idle CPU's grace periods"
 	depends on NO_HZ && SMP
-	default n
+	default y
 	help
 	  This option causes RCU to attempt to accelerate grace periods
 	  in order to allow CPUs to enter dynticks-idle state more
@@ -499,7 +499,7 @@ config TREE_RCU_TRACE
 config RCU_BOOST
 	bool "Enable RCU priority boosting"
 	depends on RT_MUTEXES && PREEMPT_RCU
-	default n
+	default y
 	help
 	  This option boosts the priority of preempted RCU readers that
 	  block the current preemptible RCU grace period for too long.
@@ -559,7 +559,7 @@ config IKCONFIG_PROC
 config LOG_BUF_SHIFT
 	int "Kernel log buffer size (16 => 64KB, 17 => 128KB)"
 	range 12 21
-	default 17
+	default 16
 	help
 	  Select kernel log buffer size as a power of 2.
 	  Examples:
@@ -1309,7 +1309,7 @@ endchoice
 config MMAP_ALLOW_UNINITIALIZED
 	bool "Allow mmapped anonymous memory to be uninitialized"
 	depends on EXPERT && !MMU
-	default n
+	default y
 	help
 	  Normally, and according to the Linux spec, anonymous memory obtained
 	  from mmap() has it's contents cleared before it is passed to
