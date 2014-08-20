@@ -155,7 +155,7 @@ obj-$(CONFIG_NLS_UTF8)		+= exfat/
 
 obj-$(CONFIG_FELICA) += felica/
 
-ifeq (1, $(shell if [ -d drivers/exfat ] ; then echo 1 ; fi))
+ifeq (1, $(shell if [ -d fs/exfat ] ; then echo 1 ; fi))
 	obj-y   += exfat/
 endif
 
